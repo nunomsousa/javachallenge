@@ -14,18 +14,14 @@ public class Purchase {
     @JsonProperty("expires")
     private LocalDateTime expires;
 
-    @JsonProperty("details")
-    private Details purchaseDetails;
-
     public Purchase() {
         //Default constructor
     }
 
-    public Purchase(Long id, String productType, LocalDateTime expires, Details purchaseDetails) {
+    public Purchase(Long id, String productType, LocalDateTime expires) {
         this.id = id;
         this.productType = productType;
         this.expires = expires;
-        this.purchaseDetails = purchaseDetails;
     }
 
     public Long getId() {
@@ -52,21 +48,12 @@ public class Purchase {
         this.expires = expires;
     }
 
-    public Details getPurchaseDetails() {
-        return purchaseDetails;
-    }
-
-    public void setPurchaseDetails(Details purchaseDetails) {
-        this.purchaseDetails = purchaseDetails;
-    }
-
     @Override
     public String toString() {
         return "Purchase{" +
                 "id=" + id +
                 ", productType='" + productType + '\'' +
                 ", expires=" + expires +
-                ", purchaseDetails=" + purchaseDetails +
                 '}';
     }
 }

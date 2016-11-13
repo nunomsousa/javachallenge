@@ -7,15 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class PurchaseDAOImpl implements PurchaseDAO {
     private static Map<Long, Purchase> purchaseMap;
 
-    private static Long currentIndex;
+    private static AtomicLong currentIndex;
 
     static {
         purchaseMap = new ConcurrentHashMap<>();
-        currentIndex = 0L;
+        currentIndex = new AtomicLong(0L);
     }
 
     public PurchaseDAOImpl() {
@@ -33,8 +34,8 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 
     @Override
     public void insertPurchase(Purchase purchase) {
-        purchase.setId(currentIndex);
-        purchaseMap.put(currentIndex++, purchase);
+        purchase.setId(currentIndex.get());
+        purchaseMap.put(currentIndex.getAndIncrement(), purchase);
     }
 
     @Override

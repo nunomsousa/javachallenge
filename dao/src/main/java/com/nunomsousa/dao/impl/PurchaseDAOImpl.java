@@ -28,6 +28,11 @@ public class PurchaseDAOImpl implements PurchaseDAO {
     }
 
     @Override
+    public void insertPurchase(Purchase purchase) {
+        purchaseMap.put(purchase.getId(), purchase);
+    }
+
+    @Override
     public void updatePurchase(Purchase purchase) {
         purchaseMap.put(purchase.getId(), purchase);
     }

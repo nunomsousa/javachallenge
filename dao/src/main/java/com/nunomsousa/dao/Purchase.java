@@ -49,4 +49,14 @@ public class Purchase {
     public void setPurchaseDetails(Details purchaseDetails) {
         this.purchaseDetails = purchaseDetails;
     }
+
+    @Override
+    public String toString() {
+        return "Purchase{" +
+                "id=" + id +
+                ", productType='" + productType + '\'' +
+                ", expires=" + expires +
+                ", purchaseDetails=" + purchaseDetails +
+                '}';
+    }
 }

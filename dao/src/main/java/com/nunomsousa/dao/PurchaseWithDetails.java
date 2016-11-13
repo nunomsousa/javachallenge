@@ -8,6 +8,10 @@ public class PurchaseWithDetails extends Purchase {
     @JsonProperty("purchaseDetails")
     private Details purchaseDetails;
 
+    public PurchaseWithDetails() {
+        //Empty constructor
+    }
+
     public PurchaseWithDetails(Long id, String productType, LocalDateTime expires, Details purchaseDetails) {
         super(id, productType, expires);
         this.purchaseDetails = purchaseDetails;

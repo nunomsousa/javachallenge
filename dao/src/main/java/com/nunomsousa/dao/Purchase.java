@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDateTime;
 
+/**
+ * POJO class that holds data retrieved from the Purchase DAO
+ */
 public class Purchase {
     @JsonProperty("id")
     private Long id;

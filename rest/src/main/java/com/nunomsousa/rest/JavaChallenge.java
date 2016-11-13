@@ -4,6 +4,9 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
+/**
+ * The main class, which starts the Jetty server on port 8080 and handles requests as defined in the JavaChallengeWebAPI class
+ */
 public class JavaChallenge {
     public static void main(String[] args) throws Exception {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
@@ -19,7 +22,6 @@ public class JavaChallenge {
         jerseyServlet.setInitParameter(
                 "jersey.config.server.provider.classnames",
                 JavaChallengeWebAPI.class.getCanonicalName());
-        //jerseyServlet.setInitParameter("jersey.api.json.POJOMappingFeature", "true");
 
         try {
             jettyServer.start();

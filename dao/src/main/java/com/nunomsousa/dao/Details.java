@@ -2,6 +2,9 @@ package com.nunomsousa.dao;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * POJO class that holds Details data, related to a Purchase
+ */
 public class Details {
     @JsonProperty("id")
     private Long id;

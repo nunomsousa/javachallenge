@@ -1,13 +1,23 @@
 package com.nunomsousa.dao;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Details {
+    @JsonProperty("id")
     private Long id;
 
+    @JsonProperty("description")
     private String description;
 
+    @JsonProperty("quantity")
     private Integer quantity;
 
+    @JsonProperty("value")
     private Double value;
+
+    public Details() {
+        //Default constructor
+    }
 
     public Details(Long id, String description, Integer quantity, Double value) {
         this.id = id;
@@ -46,5 +56,15 @@ public class Details {
 
     public void setValue(Double value) {
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "Details{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", quantity=" + quantity +
+                ", value=" + value +
+                '}';
     }
 }

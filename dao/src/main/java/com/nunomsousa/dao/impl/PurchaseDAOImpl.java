@@ -1,6 +1,7 @@
 package com.nunomsousa.dao.impl;
 
 import com.nunomsousa.dao.Purchase;
+import com.nunomsousa.dao.PurchaseDAO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +11,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class PurchaseDAOImpl implements PurchaseDAO {
     private static Map<Long, Purchase> purchaseMap;
 
+    private static Long currentIndex;
+
     static {
         purchaseMap = new ConcurrentHashMap<>();
+        currentIndex = 0L;
     }
 
     public PurchaseDAOImpl() {
@@ -29,7 +33,8 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 
     @Override
     public void insertPurchase(Purchase purchase) {
-        purchaseMap.put(purchase.getId(), purchase);
+        purchase.setId(currentIndex);
+        purchaseMap.put(currentIndex++, purchase);
     }
 
     @Override
@@ -38,7 +43,7 @@ public class PurchaseDAOImpl implements PurchaseDAO {
     }
 
     @Override
-    public void deletePurchase(Purchase purchase) {
-        purchaseMap.remove(purchase.getId());
+    public void deletePurchase(Long id) {
+        purchaseMap.remove(id);
     }
 }

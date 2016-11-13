@@ -1,17 +1,27 @@
 package com.nunomsousa.dao;
 
-import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.time.LocalDateTime;
 
 public class Purchase {
+    @JsonProperty("id")
     private Long id;
 
+    @JsonProperty("productType")
     private String productType;
 
-    private LocalDate expires;
+    @JsonProperty("expires")
+    private LocalDateTime expires;
 
+    @JsonProperty("details")
     private Details purchaseDetails;
 
-    public Purchase(Long id, String productType, LocalDate expires, Details purchaseDetails) {
+    public Purchase() {
+        //Default constructor
+    }
+
+    public Purchase(Long id, String productType, LocalDateTime expires, Details purchaseDetails) {
         this.id = id;
         this.productType = productType;
         this.expires = expires;
@@ -34,11 +44,11 @@ public class Purchase {
         this.productType = productType;
     }
 
-    public LocalDate getExpires() {
+    public LocalDateTime getExpires() {
         return expires;
     }
 
-    public void setExpires(LocalDate expires) {
+    public void setExpires(LocalDateTime expires) {
         this.expires = expires;
     }
 

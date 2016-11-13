@@ -19,6 +19,7 @@ public class JavaChallenge {
         jerseyServlet.setInitParameter(
                 "jersey.config.server.provider.classnames",
                 JavaChallengeWebAPI.class.getCanonicalName());
+        //jerseyServlet.setInitParameter("jersey.api.json.POJOMappingFeature", "true");
 
         try {
             jettyServer.start();
